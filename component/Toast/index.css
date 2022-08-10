@@ -1,0 +1,113 @@
+.roy-toast {
+  background: var(--el-color-primary);
+  color: #fff;
+  border-radius: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: none;
+  min-width: 100%;
+  margin: 0;
+  left: 0;
+  transform: none;
+  transition: all .5s ease;
+  transition-property: top, right, bottom, left, opacity;
+  font-size: 14px;
+  min-height: 30px;
+  max-height: 100px;
+  position: fixed;
+  align-items: center;
+  padding: 5px 24px;
+  bottom: -100px;
+  top: -100px;
+  opacity: 0;
+  z-index: 9999;
+}
+
+.roy-toast.roy-toast--center {
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: auto;
+  top: 0;
+}
+
+.roy-toast.roy-toast__status--warning {
+  color: #ffffff;
+  background: #FFA522;
+}
+
+.roy-toast.roy-toast__status--error {
+  color: #fff;
+  background: #ff4843;
+}
+
+.roy-toast.roy-toast__status--success {
+  color: #fff;
+  background: #009688;
+}
+
+.roy-toast .roy-toast__main {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roy-toast .roy-toast__message {
+  max-height: 80px;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-break: break-all;
+  height: 100%;
+  line-height: 30px;
+  padding: 0;
+}
+
+.roy-toast span {
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+}
+
+.roy-toast i {
+  padding-right: 8px;
+}
+
+.roy-toast::after {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  opacity: .1;
+  content: "";
+  animation: roy-toast__snackbar-progress var(--duration) linear forwards;
+  pointer-events: none;
+}
+
+.roy-toast.roy-toast--hover-tab::after {
+  animation-play-state: paused;
+}
+
+.roy-toast .roy-toast__close {
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 0 5px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.roy-toast .roy-toast__close:hover {
+  background: rgba(#fff, 0.4);
+}
+
+@keyframes roy-toast__snackbar-progress {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
